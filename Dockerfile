@@ -65,6 +65,7 @@ FROM php:8.0-apache as final
 # RUN pecl install redis-5.3.7 \
 #    && pecl install xdebug-3.2.1 \
 #    && docker-php-ext-enable redis xdebug
+RUN docker-php-ext-install pdo pdo_mysql
 
 # Use the default production configuration for PHP runtime arguments, see
 # https://github.com/docker-library/docs/tree/master/php#configuration

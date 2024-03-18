@@ -11,6 +11,9 @@ services:
   server:
     build:
       context: .
+      # Target the production/development stage
+      # target: production
+      target: development
     ports:
       - 8080:80
 

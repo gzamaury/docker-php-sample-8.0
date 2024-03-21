@@ -9,13 +9,14 @@
 # https://github.com/docker/awesome-compose
 services:
   server:
+    container_name: server-php-sample
     build:
       context: .
       # Target the production/development stage
       # target: production
       target: development
     ports:
-      - 8080:80
+      - 8085:80
 
     # We are using MariaDB (https://hub.docker.com/_/mariadb)
     depends_on:
@@ -38,7 +39,10 @@ services:
           target: /var/www/html
   db:
     image: mariadb
-    restart: always
+    # always: Always restart the container if it stops.
+    # unless-stopped: Always restart the container unless it was stopped arbitrarily,
+    # or by the Docker daemon
+    restart: unless-stopped
     user: root
     secrets:
       - db-password

@@ -29,6 +29,7 @@ services:
       - DB_HOST=db
       - DB_NAME=example
       - DB_USER=root
+      - ENV_EXAMPLE=set_in_compose.yaml
 
     # Use Compose Watch to automatically update your running Compose services as
     # you edit and save your code (https://docs.docker.com/compose/file-watch/)

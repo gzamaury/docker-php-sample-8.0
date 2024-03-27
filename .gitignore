@@ -1,2 +1,5 @@
-db/password.txt
 **/.env
+**/.DS_Store
+**/vendor/
+.phpunit.result.cache
+db/password.txt

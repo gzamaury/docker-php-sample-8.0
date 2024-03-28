@@ -1,0 +1,11 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYUSER=devmirror # cPanel user
+    - export DEPLOYPATH=/home/$DEPLOYUSER/public_html/  # path of deploy dir, add /target_folder if required
+    - /bin/cp file_name $DEPLOYPATH                     # copy file from root to deploy dir
+    - /bin/cp -R folder_name $DEPLOYPATH                # copy folder recursively to deploy dir
+    - /bin/cp folder_name/file_name $DEPLOYPATH         # copy file from subdirectory to deploy dir
+    - /bin cp * $DEPLOYPATH                             # copy all files to deploy dir (even hidden, discoraged!)
+    - /bin cp folder_name/* $DEPLOYPATH                 # copy all from subdirectory to deploy dir
+    - /bin/cp -r * $DEPLOYPATH                          # copy all recursively to deploy dir

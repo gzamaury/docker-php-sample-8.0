@@ -1,5 +1,8 @@
 <?php
-require_once realpath(__DIR__ . "/vendor/autoload.php");
+
+$loader = require_once realpath(__DIR__ . '/vendor/autoload.php');
+$loader->addPsr4('Utils\\', 'Utils');
+
 use Utils\EnvVariableReader;
 
 $varExampleName = "ENV_EXAMPLE";

@@ -11,3 +11,4 @@ deployment:
     - /bin/cp src/.htaccess.example $DEPLOYPATH
     - /bin/cp -R vendor $DEPLOYPATH
     - /bin/cp -R src/Utils $DEPLOYPATH
+    - /bin/cp -R db $DEPLOYPATH

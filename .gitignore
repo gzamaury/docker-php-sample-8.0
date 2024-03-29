@@ -1,5 +1,6 @@
+**/.htaccess
 **/.env
 **/.DS_Store
-**/vendor/
+src/vendor/
 .phpunit.result.cache
 db/password.txt

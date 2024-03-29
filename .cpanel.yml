@@ -1,0 +1,12 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYUSER=devmirror
+    - export DEPLOYPATH=/home/$DEPLOYUSER/public_html/
+    - /bin/cp src/database.php $DEPLOYPATH
+    - /bin/cp src/hello.php $DEPLOYPATH
+    - /bin/cp src/index.php $DEPLOYPATH
+    - /bin/cp src/phpinfo.php $DEPLOYPATH
+    - /bin/cp src/.env.example $DEPLOYPATH
+    - /bin/cp src/.htaccess.example $DEPLOYPATH
+    - /bin/cp -R vendor $DEPLOYPATH

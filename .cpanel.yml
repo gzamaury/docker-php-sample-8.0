@@ -7,5 +7,6 @@ deployment:
     - /bin/cp src/hello.php $DEPLOYPATH
     - /bin/cp src/index.php $DEPLOYPATH
     - /bin/cp src/phpinfo.php $DEPLOYPATH
-    - /bin/cp .env.example $DEPLOYPATH
+    - /bin/cp src/.env.example $DEPLOYPATH
+    - /bin/cp src/.htaccess.example $DEPLOYPATH
     - /bin/cp -R vendor $DEPLOYPATH

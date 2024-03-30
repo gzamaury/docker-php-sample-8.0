@@ -1,12 +1,17 @@
 <?php
 
+$loader = require_once realpath(__DIR__ . '/vendor/autoload.php');
+$loader->addPsr4('Utils\\', 'Utils');
+
+use Utils\EnvVariableReader;
+
 // Read the database connection parameters from environment variables
-$db_host = getenv('DB_HOST');
-$db_name = getenv('DB_NAME');
-$db_user = getenv('DB_USER');
+$db_host = EnvVariableReader::getEnvVariable('DB_HOST');
+$db_name = EnvVariableReader::getEnvVariable('DB_NAME');
+$db_user = EnvVariableReader::getEnvVariable('DB_USER');
 
 // Read the password file path from an environment variable
-$password_file_path = getenv('PASSWORD_FILE_PATH');
+$password_file_path = EnvVariableReader::getEnvVariable('PASSWORD_FILE_PATH');
 
 // Read the password from the file
 $db_pass = trim(file_get_contents($password_file_path));
@@ -29,6 +34,7 @@ $count = $row['count'];
 $db_handle->exec("
  INSERT INTO messages (message)
  SELECT CONCAT('message-', '$count')
+ FROM dual
  WHERE NOT EXISTS (
   SELECT 1 FROM messages WHERE message = CONCAT('message-', '$count')
  )

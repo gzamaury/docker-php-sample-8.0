@@ -34,6 +34,7 @@ $count = $row['count'];
 $db_handle->exec("
  INSERT INTO messages (message)
  SELECT CONCAT('message-', '$count')
+ FROM dual
  WHERE NOT EXISTS (
   SELECT 1 FROM messages WHERE message = CONCAT('message-', '$count')
  )

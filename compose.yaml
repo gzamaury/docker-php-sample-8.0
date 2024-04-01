@@ -26,8 +26,10 @@ services:
       #   condition: service_healthy
     secrets:
       - db-password
+      - email-password
     environment:
-      - PASSWORD_FILE_PATH=/run/secrets/db-password
+      - DB_PASSWORD_FILE_PATH=/run/secrets/db-password
+      - EMAIL_PASSWORD_FILE_PATH=/run/secrets/email-password
       - DB_HOST=db
       - DB_NAME=example
       - DB_USER=root
@@ -83,7 +85,9 @@ volumes:
   db-data:
 secrets:
   db-password:
-    file: db/password.txt
+    file: secrets/db_password.txt
+  email-password:
+    file: secrets/email_password.txt
 
   # The commented out section below is an example of how to define a PostgreSQL
   # database that your application can use. `depends_on` tells Docker Compose to

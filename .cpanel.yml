@@ -12,3 +12,5 @@ deployment:
     - /bin/cp -R vendor $DEPLOYPATH
     - /bin/cp -R src/Utils $DEPLOYPATH
     - /bin/cp -R db $DEPLOYPATH
+    - /bin/cp src/email.php $DEPLOYPATH
+    - /bin/cp src/send_email.php $DEPLOYPATH

@@ -46,7 +46,11 @@ class MailService
             self::$mailerInstance->Host = EnvVariableReader::getEnvVariable('SMTP_HOST');
             self::$mailerInstance->SMTPAuth = true; // Enable SMTP authentication
             self::$mailerInstance->Username = EnvVariableReader::getEnvVariable('SMTP_USERNAME');
-            self::$mailerInstance->Password = EnvVariableReader::getEnvVariable('SMTP_PASSWORD');
+            // Read the password file path from an environment variable
+            $password_file_path = EnvVariableReader::getEnvVariable('EMAIL_PASSWORD_FILE_PATH');
+            // Read the password from the file
+            $email_pass = trim(file_get_contents($password_file_path));
+            self::$mailerInstance->Password = $email_pass;
             self::$mailerInstance->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Enable implicit TLS encryption
             self::$mailerInstance->Port = EnvVariableReader::getEnvVariable('SMTP_PORT');
         }

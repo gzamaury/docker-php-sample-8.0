@@ -11,7 +11,7 @@ $db_name = EnvVariableReader::getEnvVariable('DB_NAME');
 $db_user = EnvVariableReader::getEnvVariable('DB_USER');
 
 // Read the password file path from an environment variable
-$password_file_path = EnvVariableReader::getEnvVariable('PASSWORD_FILE_PATH');
+$password_file_path = EnvVariableReader::getEnvVariable('DB_PASSWORD_FILE_PATH');
 
 // Read the password from the file
 $db_pass = trim(file_get_contents($password_file_path));
@@ -45,9 +45,8 @@ $stmt = $db_handle->query("SELECT * FROM messages");
 
 // Print all records
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
- echo $row['id'] . " " . $row['message'] . "<br>";
+    echo $row['id'] . " " . $row['message'] . "<br>";
 }
 
 // Close the database connection
 $db_handle = null;
-?>

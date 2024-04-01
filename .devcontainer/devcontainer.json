@@ -21,7 +21,9 @@
     "vscode": {
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
-        "DEVSENSE.phptools-vscode"
+        "DEVSENSE.phptools-vscode",
+				"junstyle.php-cs-fixer",
+        "obliviousharmony.vscode-php-codesniffer"
       ]
     }
   }

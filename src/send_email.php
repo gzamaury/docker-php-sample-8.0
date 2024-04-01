@@ -5,12 +5,17 @@ $loader->addPsr4('Utils\\', 'Utils');
 
 use Utils\MailService;
 
-if (isset($_POST['submit'])) {
-    $subject = $_POST['subject'];
-    $body = $_POST['body'];
-    $recipientEmail = $_POST['recipient'];
+try {
+    if (isset($_POST['submit'])) {
+        $subject = $_POST['subject'];
+        $body = $_POST['body'];
+        $recipientEmail = $_POST['recipient'];
 
-    MailService::sendMail($subject, $body, $recipientEmail);
+        MailService::sendMail($subject, $body, $recipientEmail);
+    }
+} catch (ErrorException $e) {
+    // Handle the exception
+    die($e->getMessage());
 }
 
 ?>

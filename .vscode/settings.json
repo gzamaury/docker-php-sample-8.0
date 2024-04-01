@@ -1,3 +1,13 @@
 {
-  "phpunit.phpunit": "src/vendor/bin/phpunit"
+  "phpunit.phpunit": "src/vendor/bin/phpunit",
+  "[php]": {
+    "editor.defaultFormatter": "obliviousharmony.vscode-php-codesniffer"
+  },
+  "php-cs-fixer.executablePath": "/workspaces/docker-php-sample-8.0/src/vendor/friendsofphp/php-cs-fixer/php-cs-fixer",
+  "php-cs-fixer.rules": "@PSR12",
+  "php-cs-fixer.onsave": true,
+  "phpCodeSniffer.exec.linux": "/workspaces/docker-php-sample-8.0/src/vendor/bin/phpcs",
+  "phpCodeSniffer.standard": "PSR12",
+  "phpCodeSniffer.lintAction": "Save",
+  "files.eol": "\n"
 }

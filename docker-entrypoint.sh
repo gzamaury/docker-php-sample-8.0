@@ -8,6 +8,7 @@ composer update
 echo "Installing Composer dependencies for production."
 export COMPOSER_VENDOR_DIR=./vendor
 composer install --no-dev --no-interaction
+export COMPOSER_VENDOR_DIR=src/vendor
 
 # Wire from the src folder into the www folder
 echo "Wiring the src folder into the /var/www/html folder."

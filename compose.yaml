@@ -76,7 +76,7 @@ services:
   phpmyadmin:
     image: phpmyadmin
     ports:
-      - 8081:80
+      - 8086:80
     depends_on:
       - db
     environment:

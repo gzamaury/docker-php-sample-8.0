@@ -14,6 +14,9 @@ class MailService
     {
         try {
             $mail = self::getMailerInstance();
+            // Setting utf-8 enconding
+            $mail->Encoding = 'base64';
+            $mail->CharSet = "UTF-8";
 
             // Recipients
             $mail->setFrom(EnvVariableReader::getEnvVariable('MAIL_FROM_EMAIL'), EnvVariableReader::getEnvVariable('MAIL_FROM_NAME'));

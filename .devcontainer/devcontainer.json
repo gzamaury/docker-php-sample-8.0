@@ -16,6 +16,9 @@
 	// "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
 	"postCreateCommand": "bash docker-entrypoint.sh",
 
+	// fix: fatal: detected dubious ownership in repository (https://www.kenmuse.com/blog/avoiding-dubious-ownership-in-dev-containers/)
+  "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {

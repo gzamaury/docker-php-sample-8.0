@@ -39,6 +39,9 @@ services:
       - db-password
     volumes:
       - mariadb-data:/var/lib/mysql
+      # Initializing the database contents, runs any *.sql files in the volume when
+      #container is started for the first time, see https://hub.docker.com/_/mariadb
+      - ../.DB:/docker-entrypoint-initdb.d
     environment:
       MARIADB_ROOT_PASSWORD_FILE: /run/secrets/db-password
       MARIADB_DATABASE: example

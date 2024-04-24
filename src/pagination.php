@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="pagination/css/dps8.css">
 <link rel="stylesheet" type="text/css" href="pagination/css/pagination.css">
 
-<script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 <script>
 function getResult(url) {
 	$.ajax({

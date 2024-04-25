@@ -12,8 +12,10 @@ services:
       - db-password
       - email-password
     environment:
-      - DB_PASSWORD_FILE_PATH=/run/secrets/db-password
-      - EMAIL_PASSWORD_FILE_PATH=/run/secrets/email-password
+      # - DB_PASSWORD_FILE_PATH=/run/secrets/db-password
+      # - EMAIL_PASSWORD_FILE_PATH=/run/secrets/email-password
+      - DB_PASSWORD_FILE_PATH=secrets/db_password.txt
+      - EMAIL_PASSWORD_FILE_PATH=secrets/email_password.txt
       - DB_HOST=db
       - DB_NAME=example
       - DB_USER=root
@@ -53,6 +55,6 @@ volumes:
   mariadb-data:
 secrets:
   db-password:
-    file: ../secrets/db_password.txt
+    file: ../src/secrets/db_password.txt
   email-password:
-    file: ../secrets/email_password.txt
+    file: ../src/secrets/email_password.txt

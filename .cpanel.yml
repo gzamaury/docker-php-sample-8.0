@@ -11,7 +11,7 @@ deployment:
     - /bin/cp src/.htaccess.example $DEPLOYPATH
     - /bin/cp -R vendor $DEPLOYPATH
     - /bin/cp -R src/Utils $DEPLOYPATH
-    - /bin/cp -R secrets $DEPLOYPATH
+    - /bin/cp -R src/secrets $DEPLOYPATH
     - /bin/cp src/email.php $DEPLOYPATH
     - /bin/cp src/send_email.php $DEPLOYPATH
     - /bin/cp -R src/pagination $DEPLOYPATH

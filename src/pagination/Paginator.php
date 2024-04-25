@@ -44,7 +44,7 @@ class Paginator
             }
 
             if (($_GET["page"] - 3) > 1) {
-                    $output = $output . '<span class="dot">...</span>';
+                $output = $output . '<span class="dot">...</span>';
             }
 
             for ($i = ($_GET["page"] - 2); $i <= ($_GET["page"] + 2); $i++) {

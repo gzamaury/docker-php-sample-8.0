@@ -3,5 +3,5 @@
 **/.DS_Store
 src/vendor/
 .phpunit.result.cache
-secrets/db_password.txt
-secrets/email_password.txt
+src/secrets/db_password.txt
+src/secrets/email_password.txt

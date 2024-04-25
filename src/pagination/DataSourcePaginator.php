@@ -29,8 +29,8 @@ class DataSourcePaginator
             $host = EnvVariableReader::getEnvVariable('DB_HOST');
             $user = EnvVariableReader::getEnvVariable('DB_USER');
             $database = EnvVariableReader::getEnvVariable('DB_NAME');
-            $passwordFilePath = EnvVariableReader::getEnvVariable('DB_PASSWORD_FILE_PATH');
-            $password = trim(file_get_contents($passwordFilePath));
+            $password = EnvVariableReader::getPassFromEnvVarFile('DB_PASSWORD_FILE_PATH');
+
             $conn = mysqli_connect($host, $user, $password, $database);
 
             if (mysqli_connect_errno()) {

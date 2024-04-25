@@ -1,3 +1,17 @@
+Options -Indexes
+
+# Redirects http to https
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R,L]
+
+php_value output_buffering 4096
+php_value max_execution_time 200
+php_value max_input_time 60
+php_value memory_limit 256M
+php_value post_max_size 256M
+php_value upload_max_filesize 256M
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /

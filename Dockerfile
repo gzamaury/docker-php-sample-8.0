@@ -75,8 +75,8 @@ FROM php:8.1-apache AS base
 #    && pecl install xdebug-3.2.1 \
 #    && docker-php-ext-enable redis xdebug
 
-# Installs the pdo and pdo_mysql extensions.
-RUN docker-php-ext-install pdo pdo_mysql
+# Installs php-mysql driver pdo and pdo_mysql extensions.
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # Copy the app files from the app directory.
 COPY ./src /var/www/html

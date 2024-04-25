@@ -16,23 +16,24 @@ try {
     die($e->getMessage());
 }
 
-function sayHello($name, $var_example_value) {
-	echo "Hello $name! - Your 'ENV_EXAMPLE' value was: $var_example_value";
+function sayHello($name, $var_example_value)
+{
+    echo "Hello $name! - Your 'ENV_EXAMPLE' value was: $var_example_value";
 }
 
 ?>
 
 <html>
-	<head>
-		<title>Visual Studio Code Remote :: PHP</title>
-	</head>
-	<body>
-		<?php 
-		
-		sayHello('from index.php and phpinfo()', $varExampleValue);
-			
-		phpinfo(); 
-			
-		?>
-	</body>
+    <head>
+        <title>Visual Studio Code Remote :: PHP</title>
+    </head>
+    <body>
+        <?php
+
+        sayHello('from index.php and phpinfo()', $varExampleValue);
+
+        phpinfo();
+
+        ?>
+    </body>
 </html>

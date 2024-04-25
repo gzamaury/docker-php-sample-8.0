@@ -16,6 +16,9 @@ services:
       # Target the production/development stage
       # target: production
       target: development
+    # Load env variables from .env file
+    # env_file:
+    #   - ./src/.env
     ports:
       - 8085:80
 
@@ -28,8 +31,10 @@ services:
       - db-password
       - email-password
     environment:
-      - DB_PASSWORD_FILE_PATH=/run/secrets/db-password
-      - EMAIL_PASSWORD_FILE_PATH=/run/secrets/email-password
+      # - DB_PASSWORD_FILE_PATH=/run/secrets/db-password
+      # - EMAIL_PASSWORD_FILE_PATH=/run/secrets/email-password
+      - DB_PASSWORD_FILE_PATH=secrets/db_password.txt
+      - EMAIL_PASSWORD_FILE_PATH=secrets/email_password.txt
       - DB_HOST=db
       - DB_NAME=example
       - DB_USER=root
@@ -53,6 +58,7 @@ services:
       - db-password
     volumes:
       - db-data:/var/lib/mysql
+      - .DB:/docker-entrypoint-initdb.d
     environment:
       - MARIADB_ROOT_PASSWORD_FILE=/run/secrets/db-password
       - MARIADB_DATABASE=example
@@ -85,9 +91,9 @@ volumes:
   db-data:
 secrets:
   db-password:
-    file: secrets/db_password.txt
+    file: src/secrets/db_password.txt
   email-password:
-    file: secrets/email_password.txt
+    file: src/secrets/email_password.txt
 
   # The commented out section below is an example of how to define a PostgreSQL
   # database that your application can use. `depends_on` tells Docker Compose to

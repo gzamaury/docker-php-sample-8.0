@@ -14,5 +14,7 @@ deployment:
     - /bin/cp -R src/secrets $DEPLOYPATH
     - /bin/cp src/email.php $DEPLOYPATH
     - /bin/cp src/send_email.php $DEPLOYPATH
-    - /bin/cp -R src/pagination $DEPLOYPATH
+    - /bin/cp -R src/Services $DEPLOYPATH
     - /bin/cp src/pagination.php $DEPLOYPATH
+    - /bin/cp src/getResult.php $DEPLOYPATH
+    

@@ -3,8 +3,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>AJAX Pagination with PHP</title>
-<link rel="stylesheet" type="text/css" href="pagination/css/dps8.css">
-<link rel="stylesheet" type="text/css" href="pagination/css/pagination.css">
+<link rel="stylesheet" type="text/css" href="Utils/paginator/css/dps8.css">
+<link rel="stylesheet" type="text/css" href="Utils/paginator/css/paginator.css">
 
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 <script>
@@ -34,7 +34,7 @@ function getResult(url) {
 
 function changePagination(option) {
 	if(option != "") {
-		getResult("pagination/getResult.php");
+		getResult("getResult.php");
 	}
 }
 </script>
@@ -43,7 +43,7 @@ function changePagination(option) {
 <body>
 <div id="overlay">
 	<div>
-		<img src="pagination/loading.gif" width="64px" height="64px"/>
+		<img src="Utils/paginator/loading.gif" width="64px" height="64px"/>
 	</div>
 </div>
 <div class="page-content">
@@ -62,7 +62,7 @@ function changePagination(option) {
 	</div>
 </div>
 <script>
-  getResult("pagination/getResult.php");
+  getResult("getResult.php");
 </script>
 </body>
 </html>

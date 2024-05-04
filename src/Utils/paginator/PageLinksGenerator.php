@@ -1,14 +1,19 @@
 <?php
 
-namespace pagination;
+namespace Utils\paginator;
 
-class Paginator
+class PageLinksGenerator
 {
-    public $perPage;
+    protected $resultsPerPage;
+
+    public function getResultsPerPage()
+    {
+        return $this->resultsPerPage;
+    }
 
     public function __construct($perPage)
     {
-        $this->perPage = $perPage;
+        $this->resultsPerPage = $perPage;
     }
 
     public function getAllPageLinks($count, $href)
@@ -18,8 +23,8 @@ class Paginator
             $_GET["page"] = 1;
         }
 
-        if ($this->perPage != 0) {
-            $pages  = ceil($count / $this->perPage);
+        if ($this->resultsPerPage != 0) {
+            $pages  = ceil($count / $this->resultsPerPage);
         }
 
         if ($pages > 1) {
@@ -96,8 +101,8 @@ class Paginator
         if (!isset($_GET["page"])) {
             $_GET["page"] = 1;
         }
-        if ($this->perPage != 0) {
-            $pages  = ceil($count / $this->perPage);
+        if ($this->resultsPerPage != 0) {
+            $pages  = ceil($count / $this->resultsPerPage);
         }
         if ($pages > 1) {
             if ($_GET["page"] == 1) {

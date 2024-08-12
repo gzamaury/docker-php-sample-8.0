@@ -17,4 +17,6 @@ deployment:
     - /bin/cp -R src/Services $DEPLOYPATH
     - /bin/cp src/pagination.php $DEPLOYPATH
     - /bin/cp src/getResult.php $DEPLOYPATH
+    - /bin/cp src/webservice.php $DEPLOYPATH
+    - /bin/cp -R src/chucknorris $DEPLOYPATH
     

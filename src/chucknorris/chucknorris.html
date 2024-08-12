@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chuck Norris Jokes</title>
+  <link rel="stylesheet" href="chucknorris/chucknorris.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Chuck Norris Jokes</h1>
+    <select id="category" required>
+      <option value="">Select a category</option>
+    </select>
+    <button id="randomJoke">Get Random Joke</button>
+    <p>OR</p>
+    <input type="text" id="searchQuery" placeholder="Search for jokes with...">
+    <button id="searchJoke">Search Jokes</button>
+    <div id="jokeDisplay">No jokes yet...</div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      // Load categories on page load
+      $.ajax({
+        url: 'chucknorris/getCategories',
+        type: 'GET',
+        success: function (categories) {
+          console.log(categories);
+          if (Array.isArray(categories)) {
+            categories.forEach(function (category) {
+              $('#category').append('<option value="' + category + '">' + category + '</option>');
+            });
+          } else {
+            console.error('Expected an array, but got:', categories);
+          }
+
+        }
+      });
+
+      // Handle random joke button click
+      $('#randomJoke').click(function () {
+        let category = $('#category').val();
+
+        if (category === "") {
+          alert('Please select a valid category');
+          return;
+        }
+
+        $.ajax({
+          url: 'chucknorris/getRandomJoke',
+          type: 'GET',
+          data: { category: category },
+          success: function (joke) {
+            console.log(joke);
+            $('#jokeDisplay').text(joke.value);
+          }
+        });
+      });
+
+      // Handle search joke button click
+      $('#searchJoke').click(function () {
+        let query = $('#searchQuery').val();
+
+        if (query === "") {
+          alert('Please enter a search term to find jokes...');
+          return;
+        }
+
+        $.ajax({
+          url: 'chucknorris/searchJokes',
+          type: 'GET',
+          data: { query: query },
+          success: function (result) {
+            console.log(result);
+            let resultHtml = '<hr>';
+
+            result.result.forEach(function (joke) {
+              resultHtml += '<p>' + joke.value + '</p>';
+              resultHtml += '<hr>';
+            });
+
+            $('#jokeDisplay').html(resultHtml);
+          }
+        });
+      });
+    });
+
+  </script>
+</body>
+
+</html>

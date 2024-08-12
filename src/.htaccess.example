@@ -15,10 +15,19 @@ php_value upload_max_filesize 256M
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Set the default index file
   DirectoryIndex index.php
-  RewriteRule ^index.php$ - [L]
+
+  # Skip rewrites for existing files and directories
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Redirect all requests starting with /chucknorris/ to webservice.php
+  # RewriteCond %{REQUEST_URI} ^/chucknorris/
+  RewriteRule ^chucknorris/(.*)$ webservice.php [QSA,L]
+
+  RewriteRule ^index.php$ - [L]
   RewriteRule . /index.php [L]
 </IfModule>
 

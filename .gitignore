@@ -1,7 +1,8 @@
+.phpunit.result.cache
 **/.htaccess
 **/.env
 **/.DS_Store
 src/vendor/
-.phpunit.result.cache
+src/php.ini
 src/secrets/db_password.txt
 src/secrets/email_password.txt

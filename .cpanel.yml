@@ -19,4 +19,5 @@ deployment:
     - /bin/cp src/getResult.php $DEPLOYPATH
     - /bin/cp src/webservice.php $DEPLOYPATH
     - /bin/cp -R src/chucknorris $DEPLOYPATH
+    - /bin/cp src/test_exec.php $DEPLOYPATH
     

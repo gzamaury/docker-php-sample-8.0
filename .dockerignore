@@ -32,5 +32,6 @@
 **/secrets.dev.yaml
 **/values.dev.yaml
 **/vendor
+src/php.ini
 LICENSE
 README.md
